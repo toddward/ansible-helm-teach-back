@@ -43,6 +43,10 @@ spec:
             httpGet:
               path: /
               port: http
+          volumeMounts:
+          - mountPath: /app/index.html
+            name: indexfile
+            subPath: index.html
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -57,3 +61,7 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+      - name: indexfile
+        configMap:
+          name: democonfigmap
