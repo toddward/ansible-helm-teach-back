@@ -1,0 +1,3 @@
+---
+- name: "Utilize Helm to Install Chart"
+  shell: "helm upgrade nginxdeploy -f ./demochart -n demo"

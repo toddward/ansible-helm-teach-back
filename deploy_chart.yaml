@@ -1,0 +1,16 @@
+---
+- name: Install Nexus Via Ansible
+  hosts: localhost
+  tasks:
+
+    - name: "Set a miscellaneous variable"
+      set_fact:
+        var1: "value being set from playbook"
+
+    - name: "Set some values"
+      template:
+        src: "./demochart/deploy-chart-values.j2"
+        dest: "./demochart/values.yaml"
+
+    - name: "Utilize Helm to Install Chart"
+      shell: "helm install example ./demochart -n demo"
