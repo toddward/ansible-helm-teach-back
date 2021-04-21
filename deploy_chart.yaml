@@ -6,6 +6,14 @@
     - name: "Set a miscellaneous variable"
       set_fact:
         var1: "value being set from playbook"
+    
+    # - name: "Get some information about where my machine is running"
+    #   shell: "curl ipinfo.io"
+    #   register: var2
+
+    # - name: "debug"
+    #   set_fact:
+    #     hostname: "{{ var2.stdout | from_json | json_query('hostname') }}"
 
     - name: "Set some values"
       template:
